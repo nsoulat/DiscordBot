@@ -4,7 +4,11 @@ Personal discord bot that has multiple jobs.
 
 ## What does it do ?
 
-The bot is still in construction but right now it can respond very simple sentences to specific commands.
+The bot is still in construction but right now it can respond very simple sentences to specific commands and some games are on their way !
+
+### Game 1 - FlagGuesser
+
+Thanks to <https://flagpedia.net>, the bot has a database of all country flags (and even flags of sub-country as the U.S. states).
 
 ## Setup
 

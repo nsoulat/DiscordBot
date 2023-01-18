@@ -1,0 +1,1138 @@
+{
+    "ad": {
+        "subCountry": false
+    },
+    "ae": {
+        "subCountry": false
+    },
+    "af": {
+        "subCountry": false
+    },
+    "ag": {
+        "subCountry": false
+    },
+    "ai": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "al": {
+        "subCountry": false
+    },
+    "am": {
+        "subCountry": false
+    },
+    "ao": {
+        "subCountry": false
+    },
+    "aq": {
+        "subCountry": true,
+        "subCountryOf": null,
+        "distinctFlag": true
+    },
+    "ar": {
+        "subCountry": false
+    },
+    "as": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "at": {
+        "subCountry": false
+    },
+    "au": {
+        "subCountry": false
+    },
+    "aw": {
+        "subCountry": true,
+        "subCountryOf": "nl",
+        "distinctFlag": true
+    },
+    "ax": {
+        "subCountry": true,
+        "subCountryOf": "fi",
+        "distinctFlag": true
+    },
+    "az": {
+        "subCountry": false
+    },
+    "ba": {
+        "subCountry": false
+    },
+    "bb": {
+        "subCountry": false
+    },
+    "bd": {
+        "subCountry": false
+    },
+    "be": {
+        "subCountry": false
+    },
+    "bf": {
+        "subCountry": false
+    },
+    "bg": {
+        "subCountry": false
+    },
+    "bh": {
+        "subCountry": false
+    },
+    "bi": {
+        "subCountry": false
+    },
+    "bj": {
+        "subCountry": false
+    },
+    "bl": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "bm": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "bn": {
+        "subCountry": false
+    },
+    "bo": {
+        "subCountry": false
+    },
+    "bq": {
+        "subCountry": true,
+        "subCountryOf": "nl",
+        "distinctFlag": true
+    },
+    "br": {
+        "subCountry": false
+    },
+    "bs": {
+        "subCountry": false
+    },
+    "bt": {
+        "subCountry": false
+    },
+    "bv": {
+        "subCountry": true,
+        "subCountryOf": "no",
+        "distinctFlag": false
+    },
+    "bw": {
+        "subCountry": false
+    },
+    "by": {
+        "subCountry": false
+    },
+    "bz": {
+        "subCountry": false
+    },
+    "ca": {
+        "subCountry": false
+    },
+    "cc": {
+        "subCountry": true,
+        "subCountryOf": "au",
+        "distinctFlag": true
+    },
+    "cd": {
+        "subCountry": false
+    },
+    "cf": {
+        "subCountry": false
+    },
+    "cg": {
+        "subCountry": false
+    },
+    "ch": {
+        "subCountry": false
+    },
+    "ci": {
+        "subCountry": false
+    },
+    "ck": {
+        "subCountry": true,
+        "subCountryOf": "nz",
+        "distinctFlag": true
+    },
+    "cl": {
+        "subCountry": false
+    },
+    "cm": {
+        "subCountry": false
+    },
+    "cn": {
+        "subCountry": false
+    },
+    "co": {
+        "subCountry": false
+    },
+    "cr": {
+        "subCountry": false
+    },
+    "cu": {
+        "subCountry": false
+    },
+    "cv": {
+        "subCountry": false
+    },
+    "cw": {
+        "subCountry": true,
+        "subCountryOf": "nl",
+        "distinctFlag": true
+    },
+    "cx": {
+        "subCountry": true,
+        "subCountryOf": "au",
+        "distinctFlag": true
+    },
+    "cy": {
+        "subCountry": false
+    },
+    "cz": {
+        "subCountry": false
+    },
+    "de": {
+        "subCountry": false
+    },
+    "dj": {
+        "subCountry": false
+    },
+    "dk": {
+        "subCountry": false
+    },
+    "dm": {
+        "subCountry": false
+    },
+    "do": {
+        "subCountry": false
+    },
+    "dz": {
+        "subCountry": false
+    },
+    "ec": {
+        "subCountry": false
+    },
+    "ee": {
+        "subCountry": false
+    },
+    "eg": {
+        "subCountry": false
+    },
+    "eh": {
+        "subCountry": true,
+        "subCountryOf": "ma",
+        "distinctFlag": true
+    },
+    "er": {
+        "subCountry": false
+    },
+    "es": {
+        "subCountry": false
+    },
+    "et": {
+        "subCountry": false
+    },
+    "eu": {
+        "subCountry": true,
+        "subCountryOf": null,
+        "distinctFlag": true
+    },
+    "fi": {
+        "subCountry": false
+    },
+    "fj": {
+        "subCountry": false
+    },
+    "fk": {
+        "subCountry": true,
+        "subCountryOf": "en",
+        "distinctFlag": true
+    },
+    "fm": {
+        "subCountry": false
+    },
+    "fo": {
+        "subCountry": true,
+        "subCountryOf": "dk",
+        "distinctFlag": true
+    },
+    "fr": {
+        "subCountry": false
+    },
+    "ga": {
+        "subCountry": false
+    },
+    "gb": {
+        "subCountry": false
+    },
+    "gb-eng": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "gb-nir": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "gb-sct": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "gb-wls": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "gd": {
+        "subCountry": false
+    },
+    "ge": {
+        "subCountry": false
+    },
+    "gf": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "gg": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "gh": {
+        "subCountry": false
+    },
+    "gi": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "gl": {
+        "subCountry": true,
+        "subCountryOf": "dk",
+        "distinctFlag": true
+    },
+    "gm": {
+        "subCountry": false
+    },
+    "gn": {
+        "subCountry": false
+    },
+    "gp": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "gq": {
+        "subCountry": false
+    },
+    "gr": {
+        "subCountry": false
+    },
+    "gs": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "gt": {
+        "subCountry": false
+    },
+    "gu": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "gw": {
+        "subCountry": false
+    },
+    "gy": {
+        "subCountry": false
+    },
+    "hk": {
+        "subCountry": true,
+        "subCountryOf": "cn",
+        "distinctFlag": true
+    },
+    "hm": {
+        "subCountry": true,
+        "subCountryOf": "au",
+        "distinctFlag": true
+    },
+    "hn": {
+        "subCountry": false
+    },
+    "hr": {
+        "subCountry": false
+    },
+    "ht": {
+        "subCountry": false
+    },
+    "hu": {
+        "subCountry": false
+    },
+    "id": {
+        "subCountry": false
+    },
+    "ie": {
+        "subCountry": false
+    },
+    "il": {
+        "subCountry": false
+    },
+    "im": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "in": {
+        "subCountry": false
+    },
+    "io": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "iq": {
+        "subCountry": false
+    },
+    "ir": {
+        "subCountry": false
+    },
+    "is": {
+        "subCountry": false
+    },
+    "it": {
+        "subCountry": false
+    },
+    "je": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "jm": {
+        "subCountry": false
+    },
+    "jo": {
+        "subCountry": false
+    },
+    "jp": {
+        "subCountry": false
+    },
+    "ke": {
+        "subCountry": false
+    },
+    "kg": {
+        "subCountry": false
+    },
+    "kh": {
+        "subCountry": false
+    },
+    "ki": {
+        "subCountry": false
+    },
+    "km": {
+        "subCountry": false
+    },
+    "kn": {
+        "subCountry": false
+    },
+    "kp": {
+        "subCountry": false
+    },
+    "kr": {
+        "subCountry": false
+    },
+    "kw": {
+        "subCountry": false
+    },
+    "ky": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "kz": {
+        "subCountry": false
+    },
+    "la": {
+        "subCountry": false
+    },
+    "lb": {
+        "subCountry": false
+    },
+    "lc": {
+        "subCountry": false
+    },
+    "li": {
+        "subCountry": false
+    },
+    "lk": {
+        "subCountry": false
+    },
+    "lr": {
+        "subCountry": false
+    },
+    "ls": {
+        "subCountry": false
+    },
+    "lt": {
+        "subCountry": false
+    },
+    "lu": {
+        "subCountry": false
+    },
+    "lv": {
+        "subCountry": false
+    },
+    "ly": {
+        "subCountry": false
+    },
+    "ma": {
+        "subCountry": false
+    },
+    "mc": {
+        "subCountry": false
+    },
+    "md": {
+        "subCountry": false
+    },
+    "me": {
+        "subCountry": false
+    },
+    "mf": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": false
+    },
+    "mg": {
+        "subCountry": false
+    },
+    "mh": {
+        "subCountry": false
+    },
+    "mk": {
+        "subCountry": false
+    },
+    "ml": {
+        "subCountry": false
+    },
+    "mm": {
+        "subCountry": false
+    },
+    "mn": {
+        "subCountry": false
+    },
+    "mo": {
+        "subCountry": true,
+        "subCountryOf": "cn",
+        "distinctFlag": true
+    },
+    "mp": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "mq": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "mr": {
+        "subCountry": false
+    },
+    "ms": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "mt": {
+        "subCountry": false
+    },
+    "mu": {
+        "subCountry": false
+    },
+    "mv": {
+        "subCountry": false
+    },
+    "mw": {
+        "subCountry": false
+    },
+    "mx": {
+        "subCountry": false
+    },
+    "my": {
+        "subCountry": false
+    },
+    "mz": {
+        "subCountry": false
+    },
+    "na": {
+        "subCountry": false
+    },
+    "nc": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "ne": {
+        "subCountry": false
+    },
+    "nf": {
+        "subCountry": true,
+        "subCountryOf": "au",
+        "distinctFlag": true
+    },
+    "ng": {
+        "subCountry": false
+    },
+    "ni": {
+        "subCountry": false
+    },
+    "nl": {
+        "subCountry": false
+    },
+    "no": {
+        "subCountry": false
+    },
+    "np": {
+        "subCountry": false
+    },
+    "nr": {
+        "subCountry": false
+    },
+    "nu": {
+        "subCountry": true,
+        "subCountryOf": "nz",
+        "distinctFlag": true
+    },
+    "nz": {
+        "subCountry": false
+    },
+    "om": {
+        "subCountry": false
+    },
+    "pa": {
+        "subCountry": false
+    },
+    "pe": {
+        "subCountry": false
+    },
+    "pf": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "pg": {
+        "subCountry": false
+    },
+    "ph": {
+        "subCountry": false
+    },
+    "pk": {
+        "subCountry": false
+    },
+    "pl": {
+        "subCountry": false
+    },
+    "pm": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "pn": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "pr": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "ps": {
+        "subCountry": false
+    },
+    "pt": {
+        "subCountry": false
+    },
+    "pw": {
+        "subCountry": false
+    },
+    "py": {
+        "subCountry": false
+    },
+    "qa": {
+        "subCountry": false
+    },
+    "re": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "ro": {
+        "subCountry": false
+    },
+    "rs": {
+        "subCountry": false
+    },
+    "ru": {
+        "subCountry": false
+    },
+    "rw": {
+        "subCountry": false
+    },
+    "sa": {
+        "subCountry": false
+    },
+    "sb": {
+        "subCountry": false
+    },
+    "sc": {
+        "subCountry": false
+    },
+    "sd": {
+        "subCountry": false
+    },
+    "se": {
+        "subCountry": false
+    },
+    "sg": {
+        "subCountry": false
+    },
+    "sh": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "si": {
+        "subCountry": false
+    },
+    "sj": {
+        "subCountry": true,
+        "subCountryOf": "no",
+        "distinctFlag": false
+    },
+    "sk": {
+        "subCountry": false
+    },
+    "sl": {
+        "subCountry": false
+    },
+    "sm": {
+        "subCountry": false
+    },
+    "sn": {
+        "subCountry": false
+    },
+    "so": {
+        "subCountry": false
+    },
+    "sr": {
+        "subCountry": false
+    },
+    "ss": {
+        "subCountry": false
+    },
+    "st": {
+        "subCountry": false
+    },
+    "sv": {
+        "subCountry": false
+    },
+    "sx": {
+        "subCountry": true,
+        "subCountryOf": "nl",
+        "distinctFlag": true
+    },
+    "sy": {
+        "subCountry": false
+    },
+    "sz": {
+        "subCountry": false
+    },
+    "tc": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "td": {
+        "subCountry": false
+    },
+    "tf": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "tg": {
+        "subCountry": false
+    },
+    "th": {
+        "subCountry": false
+    },
+    "tj": {
+        "subCountry": false
+    },
+    "tk": {
+        "subCountry": true,
+        "subCountryOf": "nz",
+        "distinctFlag": true
+    },
+    "tl": {
+        "subCountry": false
+    },
+    "tm": {
+        "subCountry": false
+    },
+    "tn": {
+        "subCountry": false
+    },
+    "to": {
+        "subCountry": false
+    },
+    "tr": {
+        "subCountry": false
+    },
+    "tt": {
+        "subCountry": false
+    },
+    "tv": {
+        "subCountry": false
+    },
+    "tw": {
+        "subCountry": false
+    },
+    "tz": {
+        "subCountry": false
+    },
+    "ua": {
+        "subCountry": false
+    },
+    "ug": {
+        "subCountry": false
+    },
+    "um": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": false
+    },
+    "un": {
+        "subCountry": true,
+        "subCountryOf": null,
+        "distinctFlag": true
+    },
+    "us": {
+        "subCountry": false
+    },
+    "us-ak": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-al": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ar": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-az": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ca": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-co": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ct": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-de": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-fl": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ga": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-hi": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ia": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-id": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-il": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-in": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ks": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ky": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-la": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ma": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-md": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-me": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-mi": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-mn": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-mo": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ms": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-mt": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-nc": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-nd": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ne": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-nh": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-nj": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-nm": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-nv": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ny": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-oh": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ok": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-or": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-pa": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ri": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-sc": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-sd": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-tn": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-tx": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-ut": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-va": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-vt": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-wa": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-wi": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-wv": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "us-wy": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "uy": {
+        "subCountry": false
+    },
+    "uz": {
+        "subCountry": false
+    },
+    "va": {
+        "subCountry": false
+    },
+    "vc": {
+        "subCountry": false
+    },
+    "ve": {
+        "subCountry": false
+    },
+    "vg": {
+        "subCountry": true,
+        "subCountryOf": "gb",
+        "distinctFlag": true
+    },
+    "vi": {
+        "subCountry": true,
+        "subCountryOf": "us",
+        "distinctFlag": true
+    },
+    "vn": {
+        "subCountry": false
+    },
+    "vu": {
+        "subCountry": false
+    },
+    "wf": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "ws": {
+        "subCountry": false
+    },
+    "xk": {
+        "subCountry": false
+    },
+    "ye": {
+        "subCountry": false
+    },
+    "yt": {
+        "subCountry": true,
+        "subCountryOf": "fr",
+        "distinctFlag": true
+    },
+    "za": {
+        "subCountry": false
+    },
+    "zm": {
+        "subCountry": false
+    },
+    "zw": {
+        "subCountry": false
+    }
+}
