@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 BOT_TOKEN = os.getenv("TOKEN")
 GENERAL_CHANNEL_ID = os.getenv("GENERAL_ID")
-DEBUG = os.getenv("ENV_PROD", "True").lower() in ("true", "1") # DEBUG is True only if ENV_PROD is not "True" or 1
+DEBUG = not (os.getenv("ENV_PROD", "True").lower() in ("true", "1")) # DEBUG is True only if ENV_PROD is not "True" or 1
 
 delimiter = '$' # the bot only react when messages begin with this
 
@@ -22,7 +22,9 @@ bot = commands.Bot(command_prefix=delimiter, intents=intents)
 @bot.event
 async def on_ready():
 	print(f"{datetime.datetime.now()}. Logged as {bot.user}")
-	if GENERAL_CHANNEL_ID and not DEBUG:
+	if DEBUG:
+		print(f"\n\n/!\ The bot is running in DEBUG MODE\n\n")
+	elif GENERAL_CHANNEL_ID:
 		try:
 			channel = bot.get_channel(int(GENERAL_CHANNEL_ID))
 			await channel.send("Hello I'm live <:cute_hehe:947149768814104596>")
