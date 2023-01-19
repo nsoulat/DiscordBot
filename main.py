@@ -3,6 +3,7 @@ from discord.ext import commands
 import datetime
 import os
 from dotenv import load_dotenv
+from games.GameHandler import GameHandler
 
 # import environment variables so they can be caught by os.getenv()
 load_dotenv()
@@ -17,7 +18,7 @@ delimiter = '$' # the bot only react when messages begin with this
 intents = discord.Intents(messages=True, message_content=True, guilds=True)
 
 bot = commands.Bot(command_prefix=delimiter, intents=intents)
-
+gameHandler = GameHandler()
 
 @bot.event
 async def on_ready():
@@ -38,6 +39,26 @@ async def hack(ctx, target): # target will be the first word after $hack. Rest o
 
 
 @bot.command()
+async def game(ctx, game):
+	await gameHandler.newGame(ctx, game)
+
+@bot.command()
+async def ongoing_games(ctx):
+	for channel_id, value in gameHandler.get_all().items():
+		for thread_id, game in value.items():
+			await ctx.send(f"{game.title}: https://discord.com/channels/{channel_id}/{thread_id}")
+
+@bot.command(name="thread?")
+async def is_thread(ctx):
+	type_channel = type(ctx.channel)
+	if type_channel == discord.TextChannel:
+		await ctx.send("No, this is a Text Channel.")
+	elif type_channel == discord.Thread:
+		await ctx.send("Yes, this is a Thread !")
+	else:
+		await ctx.send(f"Hum, this is a {type_channel}.")
+
+@bot.command()
 @commands.has_permissions(administrator=True)
 async def offline(ctx):
 	if GENERAL_CHANNEL_ID and not DEBUG:
@@ -49,7 +70,6 @@ async def offline(ctx):
 
 	# this will close the connection to discord but raises an error on Windows after closing the connection (https://github.com/Rapptz/discord.py/issues/5209)
 	await bot.close()
-
 
 @bot.event
 async def on_message(message):
