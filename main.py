@@ -28,7 +28,7 @@ async def on_ready():
 	elif GENERAL_CHANNEL_ID:
 		try:
 			channel = bot.get_channel(int(GENERAL_CHANNEL_ID))
-			await channel.send("Hello I'm live <:cute_hehe:947149768814104596>")
+			await channel.send("Hello I'm live <:cute_hehe:947149768814104596>") # use of custom emoji: https://github.com/Rapptz/discord.py/issues/390
 		except Exception as e:
 			print(f"Error when sending message to channel general: {e}")
 
@@ -37,16 +37,33 @@ async def on_ready():
 async def hack(ctx, target): # target will be the first word after $hack. Rest of the content is omitted
 	await ctx.send(f"I'm hacking {target}! 🐱‍💻")
 
+@bot.command()
+async def game(ctx, game = None, *args):
+	if game:
+		await gameHandler.new_game(ctx, game, *args)
 
 @bot.command()
-async def game(ctx, game):
-	await gameHandler.newGame(ctx, game)
+async def play(ctx, *args):
+	await gameHandler.play(ctx, *args)
+
+@bot.command()
+async def end(ctx):
+	await gameHandler.end_game(ctx)
 
 @bot.command()
 async def ongoing_games(ctx):
+	gameHandler.clear(ctx)
+	count = 0
+	text = ""
 	for channel_id, value in gameHandler.get_all().items():
 		for thread_id, game in value.items():
-			await ctx.send(f"{game.title}: https://discord.com/channels/{channel_id}/{thread_id}")
+			count += 1
+			text += f"\n{game.title}: {game.thread.jump_url}"
+	if count == 0:
+		await ctx.send("No ongoing was found !")
+	else:
+		await ctx.send(f"{count} game{' was' if count == 1 else 's were'} found:"+text)
+		
 
 @bot.command(name="thread?")
 async def is_thread(ctx):

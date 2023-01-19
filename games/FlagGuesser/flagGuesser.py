@@ -1,18 +1,100 @@
 from unidecode import unidecode
 from games.Game import Game
-from discord import Thread
+from discord import Thread, File
+from discord.ext.commands import Context
+import io
+import aiohttp
+import json
+import random
+
+FLAGPEDIA_URL = "https://flagcdn.com/192x144"
+
+EASY, HARD, US = "easy", "hard", "us"
+FRENCH, ENGLISH = "fr", "en"
 
 class FlagGuesser(Game):
 	name = "Guess the flag"
+	allowed_difficulties = set([EASY])
+	allowed_languages = set([FRENCH])
+	thread = None
 
-	def __init__(self, thread: Thread, title) -> None:
-		self.thread = thread
+	def __init__(self, title: str, difficulty=EASY, language=FRENCH) -> None:
+		if not difficulty in self.allowed_difficulties:
+			raise Exception(f"This difficulty is not available. Here are the allowed difficulties: {', '.join(self.allowed_difficulties)}")
+		if not language in self.allowed_languages:
+			raise Exception(f"This language is not available. Here are the allowed languages: {', '.join(self.allowed_languages)}")
 		self.title = title
+		self.difficulty = difficulty
+		self.language = language
+
+	def set_thread(self, thread: Thread) -> None:
+		self.thread = thread
 
 	async def start(self):
 		self.has_started = True
-		await self.thread.send(f"Welcome to {self.name} !")
+		await self.thread.send(f"""
+Welcome to ***{self.name}*** !
+The goal of this game is for you to find to which country the flag below belongs!
+Type `$play "your country"` to try out !
+If it is too difficult, type `$end` to get the answer.
+For this game, you have to give the name of the country in **French** !
+		""")
+		country_code = self.get_random_country_code()
+		self.answer, all_answers = self.get_answer_and_alt(country_code)
+		self.all_answers = self.clean_answers(all_answers)
+		await self.send_image(country_code)
 
+	def get_random_country_code(self) -> str:
+		with open("./games/FlagGuesser/asset/codes.json", 'r', encoding='utf-8') as file:
+			data: dict[str, dict] = json.load(file)
+		
+		data_keys = list(data.keys())
+		if self.difficulty == EASY:
+			data_keys = [key for key in data_keys if not data[key]["subCountry"]]
+		elif self.difficulty == US:
+			data_keys = [key for key in data_keys if data[key]["subCountry"] and data[key]["subCountryOf"] == "us"]
+		return random.choice(data_keys)
+
+	def get_answer_and_alt(self, country_code: str) -> list[str]:
+		with open(f"./games/FlagGuesser/asset/names_{self.language}.json", 'r', encoding='utf-8') as file:
+			names: dict[str, dict] = json.load(file)
+		
+		main_name = names[country_code]["name"]
+		return main_name, [main_name]+names[country_code]["alt"]
+
+	def clean_answers(self, answers: list[str]) -> set[str]:
+		return set([clean(answer) for answer in answers])
+
+	async def send_image(self, country_code: str):
+		async with aiohttp.ClientSession() as session:
+			async with session.get(f"{FLAGPEDIA_URL}/{country_code}.png") as resp:
+				if resp.status != 200:
+					return await self.thread.send('Error when downloading the file...')
+				data = io.BytesIO(await resp.read())
+				await self.thread.send(file=File(data, 'which_country_is_it.png'))
+
+	async def play(self, ctx: Context, *args):
+		test = " ".join(args)
+		if len(test) == 0: # no args were given
+			await ctx.reply("You have to add the name of a country or sub-country!\nEx: $play France")
+			return
+
+		if clean(test) in self.all_answers:
+			await ctx.reply(f"Well done {ctx.author.mention}. You found it !", mention_author=False)
+			await ctx.message.add_reaction("👍")
+			await ctx.message.add_reaction("🎉")
+			await self.end_game()
+		else:
+			await ctx.reply(f"No! :innocent:")
+			await ctx.message.add_reaction("👎")
+		
+
+	async def send_answer(self):
+		await self.thread.send(f"The answer was {self.answer}")
+	
+	async def end_game(self):
+		self.has_ended = True
+		await self.send_answer()
 
 def clean(s: str) -> str:
 	s = unidecode(s) 		# transform all accented letters to non-accented letters
