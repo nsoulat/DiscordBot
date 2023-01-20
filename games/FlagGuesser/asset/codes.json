@@ -1,238 +1,307 @@
 {
     "ad": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇩"
     },
     "ae": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇪"
     },
     "af": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇫"
     },
     "ag": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇬"
     },
     "ai": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇦🇮"
     },
     "al": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇱"
     },
     "am": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇲"
     },
     "ao": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇴"
     },
     "aq": {
         "subCountry": true,
         "subCountryOf": null,
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇦🇶"
     },
     "ar": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇷"
     },
     "as": {
         "subCountry": true,
         "subCountryOf": "us",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇦🇸"
     },
     "at": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇹"
     },
     "au": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇺"
     },
     "aw": {
         "subCountry": true,
         "subCountryOf": "nl",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇦🇼"
     },
     "ax": {
         "subCountry": true,
         "subCountryOf": "fi",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇦🇽"
     },
     "az": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇦🇿"
     },
     "ba": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇦"
     },
     "bb": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇧"
     },
     "bd": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇩"
     },
     "be": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇪"
     },
     "bf": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇫"
     },
     "bg": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇬"
     },
     "bh": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇭"
     },
     "bi": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇮"
     },
     "bj": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇯"
     },
     "bl": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇧🇱"
     },
     "bm": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇧🇲"
     },
     "bn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇳"
     },
     "bo": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇴"
     },
     "bq": {
         "subCountry": true,
         "subCountryOf": "nl",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇧🇶"
     },
     "br": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇷"
     },
     "bs": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇸"
     },
     "bt": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇹"
     },
     "bv": {
         "subCountry": true,
         "subCountryOf": "no",
-        "distinctFlag": false
+        "distinctFlag": false,
+        "emoji": "🇧🇻"
     },
     "bw": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇼"
     },
     "by": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇾"
     },
     "bz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇧🇿"
     },
     "ca": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇦"
     },
     "cc": {
         "subCountry": true,
         "subCountryOf": "au",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇨🇨"
     },
     "cd": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇩"
     },
     "cf": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇫"
     },
     "cg": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇬"
     },
     "ch": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇭"
     },
     "ci": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇮"
     },
     "ck": {
         "subCountry": true,
         "subCountryOf": "nz",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇨🇰"
     },
     "cl": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇱"
     },
     "cm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇲"
     },
     "cn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇳"
     },
     "co": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇴"
     },
     "cr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇷"
     },
     "cu": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇺"
     },
     "cv": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇻"
     },
     "cw": {
         "subCountry": true,
         "subCountryOf": "nl",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇨🇼"
     },
     "cx": {
         "subCountry": true,
         "subCountryOf": "au",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇨🇽"
     },
     "cy": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇾"
     },
     "cz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇨🇿"
     },
     "de": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇩🇪"
     },
     "dj": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇩🇯"
     },
     "dk": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇩🇰"
     },
     "dm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇩🇲"
     },
     "do": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇩🇴"
     },
     "dz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇩🇿"
     },
     "ec": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇪🇨"
     },
     "ee": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇪🇪"
     },
     "eg": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇪🇬"
     },
     "eh": {
         "subCountry": true,
         "subCountryOf": "ma",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇪🇭"
     },
     "er": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇪🇷"
     },
     "es": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇪🇸"
     },
     "et": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇪🇹"
     },
     "eu": {
         "subCountry": true,
@@ -240,32 +309,40 @@
         "distinctFlag": true
     },
     "fi": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇫🇮"
     },
     "fj": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇫🇯"
     },
     "fk": {
         "subCountry": true,
         "subCountryOf": "en",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇫🇰"
     },
     "fm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇫🇲"
     },
     "fo": {
         "subCountry": true,
         "subCountryOf": "dk",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇫🇴"
     },
     "fr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇫🇷"
     },
     "ga": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇦"
     },
     "gb": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇧"
     },
     "gb-eng": {
         "subCountry": true,
@@ -288,535 +365,690 @@
         "distinctFlag": true
     },
     "gd": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇩"
     },
     "ge": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇪"
     },
     "gf": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇬🇫"
     },
     "gg": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇬🇬"
     },
     "gh": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇭"
     },
     "gi": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇬🇮"
     },
     "gl": {
         "subCountry": true,
         "subCountryOf": "dk",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇬🇱"
     },
     "gm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇲"
     },
     "gn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇳"
     },
     "gp": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇬🇵"
     },
     "gq": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇶"
     },
     "gr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇷"
     },
     "gs": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇬🇸"
     },
     "gt": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇹"
     },
     "gu": {
         "subCountry": true,
         "subCountryOf": "us",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇬🇺"
     },
     "gw": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇼"
     },
     "gy": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇬🇾"
     },
     "hk": {
         "subCountry": true,
         "subCountryOf": "cn",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇭🇰"
     },
     "hm": {
         "subCountry": true,
         "subCountryOf": "au",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇭🇲"
     },
     "hn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇭🇳"
     },
     "hr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇭🇷"
     },
     "ht": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇭🇹"
     },
     "hu": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇭🇺"
     },
     "id": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇮🇩"
     },
     "ie": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇮🇪"
     },
     "il": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇮🇱"
     },
     "im": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇮🇲"
     },
     "in": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇮🇳"
     },
     "io": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇮🇴"
     },
     "iq": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇮🇶"
     },
     "ir": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇮🇷"
     },
     "is": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇮🇸"
     },
     "it": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇮🇹"
     },
     "je": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇯🇪"
     },
     "jm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇯🇲"
     },
     "jo": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇯🇴"
     },
     "jp": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇯🇵"
     },
     "ke": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇪"
     },
     "kg": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇬"
     },
     "kh": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇭"
     },
     "ki": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇮"
     },
     "km": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇲"
     },
     "kn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇳"
     },
     "kp": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇵"
     },
     "kr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇷"
     },
     "kw": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇼"
     },
     "ky": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇰🇾"
     },
     "kz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇰🇿"
     },
     "la": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇦"
     },
     "lb": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇧"
     },
     "lc": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇨"
     },
     "li": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇮"
     },
     "lk": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇰"
     },
     "lr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇷"
     },
     "ls": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇸"
     },
     "lt": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇹"
     },
     "lu": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇺"
     },
     "lv": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇻"
     },
     "ly": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇱🇾"
     },
     "ma": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇦"
     },
     "mc": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇨"
     },
     "md": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇩"
     },
     "me": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇪"
     },
     "mf": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": false
+        "distinctFlag": false,
+        "emoji": "🇲🇫"
     },
     "mg": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇬"
     },
     "mh": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇭"
     },
     "mk": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇰"
     },
     "ml": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇱"
     },
     "mm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇲"
     },
     "mn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇳"
     },
     "mo": {
         "subCountry": true,
         "subCountryOf": "cn",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇲🇴"
     },
     "mp": {
         "subCountry": true,
         "subCountryOf": "us",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇲🇵"
     },
     "mq": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇲🇶"
     },
     "mr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇷"
     },
     "ms": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇲🇸"
     },
     "mt": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇹"
     },
     "mu": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇺"
     },
     "mv": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇻"
     },
     "mw": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇼"
     },
     "mx": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇽"
     },
     "my": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇾"
     },
     "mz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇲🇿"
     },
     "na": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇦"
     },
     "nc": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇳🇨"
     },
     "ne": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇪"
     },
     "nf": {
         "subCountry": true,
         "subCountryOf": "au",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇳🇫"
     },
     "ng": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇬"
     },
     "ni": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇮"
     },
     "nl": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇱"
     },
     "no": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇴"
     },
     "np": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇵"
     },
     "nr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇷"
     },
     "nu": {
         "subCountry": true,
         "subCountryOf": "nz",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇳🇺"
     },
     "nz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇳🇿"
     },
     "om": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇴🇲"
     },
     "pa": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇦"
     },
     "pe": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇪"
     },
     "pf": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇵🇫"
     },
     "pg": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇬"
     },
     "ph": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇭"
     },
     "pk": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇰"
     },
     "pl": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇱"
     },
     "pm": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇵🇲"
     },
     "pn": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇵🇳"
     },
     "pr": {
         "subCountry": true,
         "subCountryOf": "us",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇵🇷"
     },
     "ps": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇸"
     },
     "pt": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇹"
     },
     "pw": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇼"
     },
     "py": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇵🇾"
     },
     "qa": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇶🇦"
     },
     "re": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇷🇪"
     },
     "ro": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇷🇴"
     },
     "rs": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇷🇸"
     },
     "ru": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇷🇺"
     },
     "rw": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇷🇼"
     },
     "sa": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇦"
     },
     "sb": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇧"
     },
     "sc": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇨"
     },
     "sd": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇩"
     },
     "se": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇪"
     },
     "sg": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇬"
     },
     "sh": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇸🇭"
     },
     "si": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇮"
     },
     "sj": {
         "subCountry": true,
         "subCountryOf": "no",
-        "distinctFlag": false
+        "distinctFlag": false,
+        "emoji": "🇸🇯"
     },
     "sk": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇰"
     },
     "sl": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇱"
     },
     "sm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇲"
     },
     "sn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇳"
     },
     "so": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇴"
     },
     "sr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇷"
     },
     "ss": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇸"
     },
     "st": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇹"
     },
     "sv": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇻"
     },
     "sx": {
         "subCountry": true,
         "subCountryOf": "nl",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇸🇽"
     },
     "sy": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇾"
     },
     "sz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇸🇿"
     },
     "tc": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇹🇨"
     },
     "td": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇩"
     },
     "tf": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇹🇫"
     },
     "tg": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇬"
     },
     "th": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇭"
     },
     "tj": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇯"
     },
     "tk": {
         "subCountry": true,
         "subCountryOf": "nz",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇹🇰"
     },
     "tl": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇱"
     },
     "tm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇲"
     },
     "tn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇳"
     },
     "to": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇴"
     },
     "tr": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇷"
     },
     "tt": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇹"
     },
     "tv": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇻"
     },
     "tw": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇼"
     },
     "tz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇹🇿"
     },
     "ua": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇺🇦"
     },
     "ug": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇺🇬"
     },
     "um": {
         "subCountry": true,
         "subCountryOf": "us",
-        "distinctFlag": false
+        "distinctFlag": false,
+        "emoji": "🇺🇲"
     },
     "un": {
         "subCountry": true,
@@ -824,7 +1056,8 @@
         "distinctFlag": true
     },
     "us": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇺🇸"
     },
     "us-ak": {
         "subCountry": true,
@@ -1077,62 +1310,79 @@
         "distinctFlag": true
     },
     "uy": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇺🇾"
     },
     "uz": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇺🇿"
     },
     "va": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇻🇦"
     },
     "vc": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇻🇨"
     },
     "ve": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇻🇪"
     },
     "vg": {
         "subCountry": true,
         "subCountryOf": "gb",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇻🇬"
     },
     "vi": {
         "subCountry": true,
         "subCountryOf": "us",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇻🇮"
     },
     "vn": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇻🇳"
     },
     "vu": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇻🇺"
     },
     "wf": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇼🇫"
     },
     "ws": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇼🇸"
     },
     "xk": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇽🇰"
     },
     "ye": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇾🇪"
     },
     "yt": {
         "subCountry": true,
         "subCountryOf": "fr",
-        "distinctFlag": true
+        "distinctFlag": true,
+        "emoji": "🇾🇹"
     },
     "za": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇿🇦"
     },
     "zm": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇿🇲"
     },
     "zw": {
-        "subCountry": false
+        "subCountry": false,
+        "emoji": "🇿🇼"
     }
 }
