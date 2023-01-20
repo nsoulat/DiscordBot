@@ -21,5 +21,9 @@ class Game(ABC):
 		pass
 
 	@abstractmethod
-	async def end_game(self):
+	async def play(self, ctx, *args):
+		pass
+
+	@abstractmethod
+	async def end(self):
 		pass

@@ -18,7 +18,7 @@ delimiter = '$' # the bot only react when messages begin with this
 intents = discord.Intents(messages=True, message_content=True, guilds=True)
 
 bot = commands.Bot(command_prefix=delimiter, intents=intents)
-gameHandler = GameHandler()
+gameHandler = GameHandler(bot)
 
 @bot.event
 async def on_ready():
@@ -52,18 +52,26 @@ async def end(ctx):
 
 @bot.command()
 async def ongoing_games(ctx):
-	gameHandler.clear(ctx)
 	count = 0
 	text = ""
 	for channel_id, value in gameHandler.get_all().items():
 		for thread_id, game in value.items():
-			count += 1
-			text += f"\n{game.title}: {game.thread.jump_url}"
+			if game.has_started and not game.has_ended:
+				count += 1
+				text += f"\n{game.title}: {game.thread.jump_url}"
 	if count == 0:
 		await ctx.send("No ongoing was found !")
 	else:
 		await ctx.send(f"{count} game{' was' if count == 1 else 's were'} found:"+text)
-		
+
+@bot.command()
+async def delete(ctx):
+	await gameHandler.delete(ctx)
+
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def delete_all(ctx):
+	await gameHandler.delete_all(ctx)
 
 @bot.command(name="thread?")
 async def is_thread(ctx):

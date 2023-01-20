@@ -1,5 +1,5 @@
 from discord import ChannelType, Thread, TextChannel
-from discord.ext.commands import Context
+from discord.ext.commands import Context, Bot
 from games.Game import Game
 from games.FlagGuesser.FlagGuesser import FlagGuesser
 from datetime import datetime
@@ -7,8 +7,10 @@ from typing import Optional
 
 
 class GameHandler():
-	def __init__(self) -> None:
+	def __init__(self, bot: Bot) -> None:
 		self.games_by_channel = dict[int,dict[int, Game]]()
+		self.bot = bot
+	
 	
 	async def _create_thread(self, channel: TextChannel, name: str) -> Thread:
 		thread = await channel.create_thread(
@@ -16,6 +18,7 @@ class GameHandler():
 			type=ChannelType.public_thread
 		)
 		return thread
+
 
 	def _exist(self, channel_id: int) -> bool:
 		"""
@@ -27,14 +30,6 @@ class GameHandler():
 					return True
 		return False
 	
-	def _clear(self, channel_id: int)  -> None:
-		to_remove = []
-		if channel_id in self.games_by_channel and len(self.games_by_channel[channel_id]) > 0:
-			for thread_id, game in self.games_by_channel[channel_id].items():
-				if not game.has_started or game.has_ended: # game hasn't been removed correctly from our gameHandler
-					to_remove.append([channel_id, thread_id])
-		for channel_id, thread_id in to_remove:
-			self._remove(channel_id, thread_id)
 
 	def _add(self, channel_id: int, thread_id: int, game: Game) -> None:
 		if not channel_id in self.games_by_channel:
@@ -45,6 +40,11 @@ class GameHandler():
 		else:
 			self.games_by_channel[channel_id][thread_id] = game
 	
+
+	def _remove_game(self, game: Game):
+		self._remove(game.thread.parent_id, game.thread.id)
+
+
 	def _remove(self, channel_id: int, thread_id: int) -> None:
 		if not channel_id in self.games_by_channel:
 			raise Exception("There is no game in this channel, or it has ended already.")
@@ -54,18 +54,86 @@ class GameHandler():
 		else:
 			del self.games_by_channel[channel_id][thread_id]
 
-	def clear(self, ctx):
-		self._clear(ctx.channel.id)
+
+	def _get_finished_game(self, include_artefacts: bool = True) -> list[Game]:
+		"""
+		Return all the games that has ended
+		if artefacts is True, then games that hasn't started are also returned
+		"""
+		out = []
+		for channel_id in self.games_by_channel:
+			for thread_id, game in self.games_by_channel[channel_id].items():
+				if game.has_ended or (include_artefacts and not game.has_started):
+					out.append(game)
+		return out
+
+
+	def _clear(self) -> None:
+		"""
+		Remove all finished games from gameHandler
+		"""
+		for game in self._get_finished_game():
+			self._remove_game(game)
+
+
+	async def _delete_thread(self, thread: Thread) -> None:
+		if thread:
+			if thread.owner == self.bot.user:
+				try:
+					await thread.delete()
+				except Exception as e:
+					print(e)
+					await thread.send("This thread cannot be deleted ?")
+			else:
+				await thread.send("Sorry, I only delete threads that I created !")
+
+
+	async def _delete(self, thread: Thread) -> None:
+		game =  self.get(thread.parent_id, thread.id)
+		if game:
+			if not game.has_ended:
+				await game.end()
+			self._remove_game(game)
+		await self._delete_thread(thread)
+
+
+	async def delete(self, ctx: Context) -> None:
+		"""
+		Delete the thread of a game
+		"""
+		if type(ctx.channel) == Thread:
+			await self._delete(ctx.channel)
+			self._clear()
+		else:
+			await ctx.send("This command can be used only in the thread of a game.")
+
+
+	async def delete_all(self, ctx: Context) -> None:
+		"""
+		Delete all the threads of a channel associated to a game.
+		"""
+		if type(ctx.channel) == TextChannel:
+			count = 0
+			for thread in ctx.channel.threads:
+				if thread.owner == self.bot.user:
+					count += 1
+					await self._delete(thread)
+			failed = [thread for thread in ctx.channel.threads if thread.owner == self.bot.user]
+			count_failed = len(failed)
+			self._clear()
+			if count_failed == 0:
+				await ctx.send(f"All game-threads have been removed ! ({count} thread{'s' if count > 0 else ''} deleted)")
+			else:
+				await ctx.send(f"{count - count_failed}/{count} thread{'s' if count - count_failed > 0 else ''} deleted. Here are the non-deleted threads:")
+				for thread in failed:
+					await ctx.send(thread.jump_url)
+		else:
+			ctx.send("This command can be used only in text channel.")
+
 
 	async def new_game(self, ctx: Context, game_name: str, *args) -> None:
 		if type(ctx.channel) != TextChannel:
 			await ctx.send("Games can only be created in Text Channel !")
-			return
-		
-		channel_id = ctx.channel.id
-		self._clear(channel_id) # remove any artefact such as finished game still in the dict
-		if self._exist(channel_id):
-			await ctx.send("There is already an ongoing game in this channel !")
 			return
 
 		game_name = game_name.lower()
@@ -79,13 +147,14 @@ class GameHandler():
 				thread = await self._create_thread(ctx.channel, title)
 				game.set_thread(thread)
 
-				self._add(channel_id, thread.id, game)
+				self._add(ctx.channel.id, thread.id, game)
 				await game.start()
 			except Exception as e:
 				await ctx.send(f"{e}")
 
 		else:
 			await ctx.send(f"No game with the name {game_name} found.")
+
 
 	async def play(self, ctx: Context, *args) -> None:
 		if type(ctx.channel) == Thread:
@@ -98,6 +167,7 @@ class GameHandler():
 			else:
 				await ctx.send("There is no game here :eyes:.")
 
+
 	async def end_game(self, ctx: Context):
 		if type(ctx.channel) == Thread:
 			thread: Thread = ctx.channel
@@ -105,7 +175,7 @@ class GameHandler():
 
 			game = self.get(channel_id, thread.id)
 			if game and not game.has_ended:
-				await game.end_game()
+				await game.end()
 
 
 	def get(self, channel_id: int, thread_id: int) -> Optional[Game]:
@@ -116,5 +186,6 @@ class GameHandler():
 		else:
 			return self.games_by_channel[channel_id][thread_id]
 		
+
 	def get_all(self) -> dict[int, dict[int, Game]]:
 		return self.games_by_channel

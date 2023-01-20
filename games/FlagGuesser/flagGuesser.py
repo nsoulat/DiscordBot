@@ -17,6 +17,8 @@ class FlagGuesser(Game):
 	allowed_difficulties = set([EASY])
 	allowed_languages = set([FRENCH])
 	thread = None
+	attempt_count = 0
+	winner = None
 
 	def __init__(self, title: str, difficulty=EASY, language=FRENCH) -> None:
 		if not difficulty in self.allowed_difficulties:
@@ -42,6 +44,8 @@ For this game, you have to give the name of the country in **French** !
 		country_code = self.get_random_country_code()
 		self.answer, all_answers = self.get_answer_and_alt(country_code)
 		self.all_answers = self.clean_answers(all_answers)
+		self.emoji = self.get_emoji(country_code)
+		self.cc = country_code
 		await self.send_image(country_code)
 
 	def get_random_country_code(self) -> str:
@@ -62,6 +66,16 @@ For this game, you have to give the name of the country in **French** !
 		main_name = names[country_code]["name"]
 		return main_name, [main_name]+names[country_code]["alt"]
 
+	def get_emoji(self, country_code: str):
+		with open("./games/FlagGuesser/asset/codes.json", 'r', encoding='utf-8') as file:
+			data: dict[str, dict] = json.load(file)
+		if not country_code in data:
+			raise Exception(f"There is no country with this code {country_code}.")
+		if not "emoji" in data[country_code]:
+			print(f"No emoji found for {self.answer} ({country_code})")
+			return None
+		return data[country_code]["emoji"]
+
 	def clean_answers(self, answers: list[str]) -> set[str]:
 		return set([clean(answer) for answer in answers])
 
@@ -79,22 +93,27 @@ For this game, you have to give the name of the country in **French** !
 			await ctx.reply("You have to add the name of a country or sub-country!\nEx: $play France")
 			return
 
+		self.attempt_count += 1
 		if clean(test) in self.all_answers:
+			self.winner = ctx.author
 			await ctx.reply(f"Well done {ctx.author.mention}. You found it !", mention_author=False)
 			await ctx.message.add_reaction("👍")
 			await ctx.message.add_reaction("🎉")
-			await self.end_game()
+			await self.end()
 		else:
 			await ctx.reply(f"No! :innocent:")
 			await ctx.message.add_reaction("👎")
-		
 
-	async def send_answer(self):
-		await self.thread.send(f"The answer was {self.answer}")
+	async def send_sum_up(self):
+		await self.thread.parent.send(self.get_sum_up())
 	
-	async def end_game(self):
+	def get_sum_up(self) -> str:
+		return f"{self.winner.mention if self.winner else 'No one'} has found {self.answer} {self.emoji if self.emoji else ''} ({self.attempt_count} attempt{'s' if self.attempt_count > 1 else ''}) !"
+	
+	async def end(self):
 		self.has_ended = True
-		await self.send_answer()
+		await self.send_sum_up()
+
 
 def clean(s: str) -> str:
 	s = unidecode(s) 		# transform all accented letters to non-accented letters
