@@ -100,6 +100,19 @@ If you do not know how to create a bot, or where to find its token, here is the 
 
 For the `GENERAL_ID` environment variable in the `.env`, it should be the ID of the channel you want your bot to say "I'm online" and "I'm disconnecting". If you do not want the bot to say that, set it to `None`. It is worth noting that setting this ID has no impact on where the bot can respond or read the message.
 
+## Permissions needed for the bot
+
+Overall the bot must be allowed to:
+
+- send messages
+- read messages / see history
+- react to messages
+- create and delete threads
+- send link
+- use emoji / external emoji
+- mention users
+- send images / files
+
 ## Nota bene
 
 `$hack` does not hack.
