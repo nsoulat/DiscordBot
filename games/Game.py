@@ -2,18 +2,16 @@ from abc import ABC, abstractmethod
 from discord import Thread
 
 class Game(ABC):
+	def __init__(self):
+		self.has_started: bool = False
+		self.has_ended: bool = False
 
-	has_started = False
-	has_ended = False
+	def set_thread(self, thread: Thread):
+		self.thread: Thread = thread
 	
 	@property
 	@abstractmethod
 	def name(self) -> str:
-		pass
-
-	@property
-	@abstractmethod
-	def thread(self) -> Thread:
 		pass
 
 	@abstractmethod

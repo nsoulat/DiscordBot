@@ -1,26 +1,24 @@
-from unidecode import unidecode
 from games.Game import Game
+from domain.Constants import LANGUAGE, DIFFICULTY
+from infra.FlagRepository import FlagRepository
+
 from discord import Thread, File
 from discord.ext.commands import Context
+
+from unidecode import unidecode
 import io
 import aiohttp
-import json
 import random
 
 FLAGPEDIA_URL = "https://flagcdn.com/192x144"
 
-EASY, HARD, US = "easy", "hard", "us"
-FRENCH, ENGLISH = "fr", "en"
-
 class FlagGuesser(Game):
 	name = "Guess the flag"
-	allowed_difficulties = set([EASY])
-	allowed_languages = set([FRENCH])
-	thread = None
-	attempt_count = 0
-	winner = None
+	allowed_difficulties = set([DIFFICULTY.EASY])
+	allowed_languages = set([LANGUAGE.FRENCH, LANGUAGE.ENGLISH])
 
-	def __init__(self, title: str, difficulty=EASY, language=FRENCH) -> None:
+	def __init__(self, title: str, flagRepository: FlagRepository, difficulty=DIFFICULTY.EASY, language=LANGUAGE.FRENCH) -> None:
+		super().__init__()
 		if not difficulty in self.allowed_difficulties:
 			raise Exception(f"This difficulty is not available. Here are the allowed difficulties: {', '.join(self.allowed_difficulties)}")
 		if not language in self.allowed_languages:
@@ -28,9 +26,10 @@ class FlagGuesser(Game):
 		self.title = title
 		self.difficulty = difficulty
 		self.language = language
-
-	def set_thread(self, thread: Thread) -> None:
-		self.thread = thread
+		self.flagRepository = flagRepository
+		self.thread = None
+		self.attempt_count = 0
+		self.winner = None
 
 	async def start(self):
 		self.has_started = True
@@ -39,45 +38,22 @@ Welcome to ***{self.name}*** !
 The goal of this game is for you to find to which country the flag below belongs!
 Type `$play "your country"` to try out !
 If it is too difficult, type `$end` to get the answer.
-For this game, you have to give the name of the country in **French** !
+For this game, you have to give the name of the country in **{LANGUAGE.trad(self.language)}** !
 		""")
-		country_code = self.get_random_country_code()
-		self.answer, all_answers = self.get_answer_and_alt(country_code)
-		self.all_answers = self.clean_answers(all_answers)
-		self.emoji = self.get_emoji(country_code)
-		self.cc = country_code
-		await self.send_image(country_code)
+		self.country = self._get_random_country()
+		self._set_answers()
+		await self.send_image(self.country.code)
 
-	def get_random_country_code(self) -> str:
-		with open("./games/FlagGuesser/asset/codes.json", 'r', encoding='utf-8') as file:
-			data: dict[str, dict] = json.load(file)
-		
-		data_keys = list(data.keys())
-		if self.difficulty == EASY:
-			data_keys = [key for key in data_keys if not data[key]["subCountry"]]
-		elif self.difficulty == US:
-			data_keys = [key for key in data_keys if data[key]["subCountry"] and data[key]["subCountryOf"] == "us"]
-		return random.choice(data_keys)
+	def _get_random_country(self):
+		include_subCountry = self.difficulty in {DIFFICULTY.HARD}
+		countries = self.flagRepository.get_all_countries(include_subCountry)
+		return random.choice(countries)
 
-	def get_answer_and_alt(self, country_code: str) -> list[str]:
-		with open(f"./games/FlagGuesser/asset/names_{self.language}.json", 'r', encoding='utf-8') as file:
-			names: dict[str, dict] = json.load(file)
-		
-		main_name = names[country_code]["name"]
-		return main_name, [main_name]+names[country_code]["alt"]
-
-	def get_emoji(self, country_code: str):
-		with open("./games/FlagGuesser/asset/codes.json", 'r', encoding='utf-8') as file:
-			data: dict[str, dict] = json.load(file)
-		if not country_code in data:
-			raise Exception(f"There is no country with this code {country_code}.")
-		if not "emoji" in data[country_code]:
-			print(f"No emoji found for {self.answer} ({country_code})")
-			return None
-		return data[country_code]["emoji"]
-
-	def clean_answers(self, answers: list[str]) -> set[str]:
-		return set([clean(answer) for answer in answers])
+	def _set_answers(self) -> None:
+		"""
+		'Clean' the names of the country to better check when players try some names
+		"""
+		self.all_answers = set([clean(answer) for answer in self.country.names[self.language].all_names])
 
 	async def send_image(self, country_code: str):
 		async with aiohttp.ClientSession() as session:
@@ -108,7 +84,7 @@ For this game, you have to give the name of the country in **French** !
 		await self.thread.parent.send(self.get_sum_up())
 	
 	def get_sum_up(self) -> str:
-		return f"{self.winner.mention if self.winner else 'No one'} has found {self.answer} {self.emoji if self.emoji else ''} ({self.attempt_count} attempt{'s' if self.attempt_count > 1 else ''}) !"
+		return f"{self.winner.mention if self.winner else 'No one'} has found {self.country.names[self.language].main} {self.country.emoji if self.country.emoji else ''} ({self.attempt_count} attempt{'s' if self.attempt_count > 1 else ''}) !"
 	
 	async def end(self):
 		self.has_ended = True

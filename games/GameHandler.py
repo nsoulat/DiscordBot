@@ -1,7 +1,10 @@
-from discord import ChannelType, Thread, TextChannel
-from discord.ext.commands import Context, Bot
 from games.Game import Game
 from games.FlagGuesser.FlagGuesser import FlagGuesser
+from infra.FlagRepository import FlagRepository
+
+from discord import ChannelType, Thread, TextChannel
+from discord.ext.commands import Context, Bot
+
 from datetime import datetime
 from typing import Optional
 
@@ -10,6 +13,8 @@ class GameHandler():
 	def __init__(self, bot: Bot) -> None:
 		self.games_by_channel = dict[int,dict[int, Game]]()
 		self.bot = bot
+
+		self.flagRepo = FlagRepository()
 	
 	
 	async def _create_thread(self, channel: TextChannel, name: str) -> Thread:
@@ -143,7 +148,7 @@ class GameHandler():
 			if len(args) > max_arguments:
 				args = args[0:max_arguments]
 			try:
-				game = FlagGuesser(title, *args)
+				game = FlagGuesser(title, self.flagRepo, *args)
 				thread = await self._create_thread(ctx.channel, title)
 				game.set_thread(thread)
 
