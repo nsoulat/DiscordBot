@@ -10,6 +10,15 @@ class LANGUAGE:
 		else:
 			raise Exception(f"Unknown language: {language}")
 
+class CONTINENT:
+    AFRICA = "AF"
+    ASIA = "AS"
+    EUROPE = "EU"
+    NORTH_AMERICA = "NA"
+    SOUTH_AMERICA = "SA"
+    OCEANIA = "OC"
+    ANTARTICA = "AN"
+
 class DIFFICULTY:
 	EASY = "easy"
 	HARD = "hard"

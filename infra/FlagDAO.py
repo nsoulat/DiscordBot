@@ -5,6 +5,7 @@ class CountryCodeDAO:
 		self.emoji: str | None = value.get("emoji", None)
 		self.subCountryOf: str | None = value.get("subCountryOf", None)
 		self.distinctFlag: str | None = value.get("distinctFlag", None)
+		self.continent: str | None = value["continent"]
 
 
 class CountryNameDAO:

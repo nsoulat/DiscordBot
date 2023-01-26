@@ -4,10 +4,11 @@ class NameDict:
 		self.all_names: set[str] = set(all)
 
 class CountryCode:
-	def __init__(self, code: str , subCountry: bool, emoji: str, subCountryOf: str | None = None, distinctFlag: bool | None = None) -> None:
+	def __init__(self, code: str , subCountry: bool, emoji: str, continent: str, subCountryOf: str | None = None, distinctFlag: bool | None = None) -> None:
 		self.code: str = code
 		self.subCountry: bool = subCountry
 		self.emoji: str | None = emoji
+		self.continent: str | None = continent
 		self.subCountryOf: str | None = subCountryOf
 		self.distinctFlag: bool | None = distinctFlag
 		self.names: dict[str, NameDict] = {}

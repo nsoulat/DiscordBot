@@ -1,5 +1,5 @@
 from games.Game import Game
-from domain.Constants import LANGUAGE, DIFFICULTY
+from domain.Constants import LANGUAGE, DIFFICULTY, CONTINENT
 from infra.FlagRepository import FlagRepository
 
 from discord import Thread, File
@@ -14,7 +14,7 @@ FLAGPEDIA_URL = "https://flagcdn.com/192x144"
 
 class FlagGuesser(Game):
 	name = "Guess the flag"
-	allowed_difficulties = set([DIFFICULTY.EASY])
+	allowed_difficulties = set([DIFFICULTY.EASY, DIFFICULTY.HARD, DIFFICULTY.US, DIFFICULTY.EUROPE])
 	allowed_languages = set([LANGUAGE.FRENCH, LANGUAGE.ENGLISH])
 
 	def __init__(self, title: str, flagRepository: FlagRepository, difficulty=DIFFICULTY.EASY, language=LANGUAGE.FRENCH) -> None:
@@ -27,7 +27,7 @@ class FlagGuesser(Game):
 		self.difficulty = difficulty
 		self.language = language
 		self.flagRepository = flagRepository
-		self.thread = None
+		self.thread: Thread = None
 		self.attempt_count = 0
 		self.winner = None
 
@@ -45,8 +45,15 @@ For this game, you have to give the name of the country in **{LANGUAGE.trad(self
 		await self.send_image(self.country.code)
 
 	def _get_random_country(self):
-		include_subCountry = self.difficulty in {DIFFICULTY.HARD}
-		countries = self.flagRepository.get_all_countries(include_subCountry)
+		countries = []
+		if self.difficulty == DIFFICULTY.US:
+			countries = self.flagRepository.get_US_regions()
+		else:
+			include_subCountry = self.difficulty in { DIFFICULTY.HARD }
+			continent = None
+			if self.difficulty == DIFFICULTY.EUROPE:
+				continent = CONTINENT.EUROPE
+			countries = self.flagRepository.get_all_countries(include_subCountry, continent)
 		return random.choice(countries)
 
 	def _set_answers(self) -> None:

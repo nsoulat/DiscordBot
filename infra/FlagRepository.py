@@ -13,7 +13,7 @@ class FlagRepository:
 		nb_country = len(country_codes.keys())
 		names = {language: self._get_all_names_by_code(language) for language in self.languages}
 		for code, countryDAO in country_codes.items():
-			self.data[code] = CountryCode(code, countryDAO.subCountry, countryDAO.emoji, countryDAO.subCountryOf, countryDAO.distinctFlag)
+			self.data[code] = CountryCode(code, countryDAO.subCountry, countryDAO.emoji, countryDAO.continent, countryDAO.subCountryOf, countryDAO.distinctFlag)
 		for language, names_by_code in names.items():
 			if len(names_by_code.keys()) != nb_country: raise Exception(f"Error in the file with names in '{language}', there is {len(names_by_code.keys())} codes instead of the {nb_country} expected")
 			for code, countryNameDAO in names_by_code.items():
@@ -56,7 +56,11 @@ class FlagRepository:
 		self._valid_country_code(country_code)
 		return self.data[country_code].names[language]
 	
-	def get_all_countries(self, include_subCountry=True) -> list[CountryCode]:
-		return [c for c in self.data.values() if include_subCountry or not c.subCountry]
+	def get_all_countries(self, include_subCountry=True, continent=None) -> list[CountryCode]:
+		return [c for c in self.data.values() if ((include_subCountry and c.distinctFlag) or not c.subCountry) and (continent == None or c.continent == continent)]
 	
+	def get_US_regions(self) -> list[CountryCode]:
+		return [c for c in self.data.values() if c.subCountry and c.subCountryOf == "us" and c.distinctFlag]
+	
+
 
