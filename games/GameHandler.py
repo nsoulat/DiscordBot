@@ -167,7 +167,7 @@ class GameHandler():
 			channel_id = thread.parent_id
 
 			game = self.get(channel_id, thread.id)
-			if game:
+			if game and not game.has_ended:
 				await game.play(ctx, *args)
 			else:
 				await ctx.send("There is no game here :eyes:.")
