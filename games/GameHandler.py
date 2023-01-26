@@ -182,6 +182,11 @@ class GameHandler():
 			if game and not game.has_ended:
 				await game.end()
 
+	async def end_all(self):
+		for channel_id in self.games_by_channel:
+			for thread_id, game in self.games_by_channel[channel_id].items():
+				if game.has_started and not game.has_ended:
+					await game.end()
 
 	def get(self, channel_id: int, thread_id: int) -> Optional[Game]:
 		if not channel_id in self.games_by_channel:

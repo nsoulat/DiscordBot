@@ -93,6 +93,8 @@ async def offline(ctx):
 		except Exception as e:
 			print(f"Error when sending message to channel general: {e}")
 
+	await gameHandler.end_all()
+
 	# this will close the connection to discord but raises an error on Windows after closing the connection (https://github.com/Rapptz/discord.py/issues/5209)
 	await bot.close()
 
