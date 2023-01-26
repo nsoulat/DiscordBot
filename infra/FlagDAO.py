@@ -1,26 +1,14 @@
 class CountryCodeDAO:
-	code: str
-	subCountry: bool
-	emoji: str
-
-	# Optional
-	subCountryOf: str | None
-	distinctFlag: bool | None
-
-	def __init__(self, code: str, subCountry: bool, emoji: str, subCountryOf: str = None, distinctFlag: bool = None) -> None:
-		self.code = code
-		self.subCountry = subCountry
-		self.emoji = emoji
-		self.subCountryOf = subCountryOf
-		self.distinctFlag = distinctFlag
+	def __init__(self, code: str, value: dict) -> None:
+		self.code: str = code
+		self.subCountry: bool = value.get("subCountry", False)
+		self.emoji: str | None = value.get("emoji", None)
+		self.subCountryOf: str | None = value.get("subCountryOf", None)
+		self.distinctFlag: str | None = value.get("distinctFlag", None)
 
 
 class CountryNameDAO:
-	code: str
-	name: str
-	alt: list[str]
-
-	def __init__(self, code: str, name: str, alt: list[str]) -> None:
-		self.code = code
-		self.name = name
-		self.alt = alt
+	def __init__(self, code: str, value: dict) -> None:
+		self.code: str = code
+		self.name: str = value["name"]
+		self.alt: list[str] = value["alt"]

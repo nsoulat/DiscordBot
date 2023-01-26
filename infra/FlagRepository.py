@@ -30,7 +30,7 @@ class FlagRepository:
 		with open(self._get_country_code_url(), 'r', encoding='utf-8') as file:
 			data: dict[str, dict] = json.load(file)
 		
-		return {key: CountryCodeDAO(key, v["subCountry"], v.get("emoji", None), v.get("subCountryOf", None), v.get("distinctFlag", None)) for key, v in data.items()}
+		return {key: CountryCodeDAO(key, v) for key, v in data.items()}
 
 	def _get_all_names_by_code(self, language: str) -> dict[str, CountryNameDAO]:
 		if not language in self.languages:
@@ -39,7 +39,7 @@ class FlagRepository:
 		with open(self._get_names_url(language), 'r', encoding='utf-8') as file:
 			names: dict[str, dict] = json.load(file)
 	
-		return {key: CountryNameDAO(key, v["name"], v.get("alt", [])) for key, v in names.items()}
+		return {key: CountryNameDAO(key, v) for key, v in names.items()}
 
 	def _exist(self, country_code: str) -> bool:
 		return country_code in self.data
