@@ -34,7 +34,7 @@
     "am": {
         "subCountry": false,
         "emoji": "🇦🇲",
-        "continent": "EU"
+        "continent": "AS"
     },
     "ao": {
         "subCountry": false,
@@ -87,7 +87,7 @@
     "az": {
         "subCountry": false,
         "emoji": "🇦🇿",
-        "continent": "EU"
+        "continent": "AS"
     },
     "ba": {
         "subCountry": false,
@@ -348,7 +348,7 @@
     "eg": {
         "subCountry": false,
         "emoji": "🇪🇬",
-        "continent": "AS"
+        "continent": "AF"
     },
     "eh": {
         "subCountry": true,
@@ -455,7 +455,7 @@
     "ge": {
         "subCountry": false,
         "emoji": "🇬🇪",
-        "continent": "EU"
+        "continent": "AS"
     },
     "gf": {
         "subCountry": true,
@@ -711,7 +711,7 @@
     "kz": {
         "subCountry": false,
         "emoji": "🇰🇿",
-        "continent": "EU"
+        "continent": "AS"
     },
     "la": {
         "subCountry": false,
