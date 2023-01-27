@@ -113,6 +113,15 @@ Overall the bot must be allowed to:
 - mention users
 - send images / files
 
+## Running tests
+
+Some tests are in the folder `test`.
+To run them, go at the root of the project and type
+
+```sh
+pytest
+```
+
 ## Nota bene
 
 `$hack` does not hack.
