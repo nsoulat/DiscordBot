@@ -2,7 +2,7 @@ from games.Game import Game
 from games.FlagGuesser.FlagGuesser import FlagGuesser
 from infra.FlagRepository import FlagRepository
 
-from discord import ChannelType, Thread, TextChannel
+from discord import ChannelType, Thread, TextChannel, DMChannel
 from discord.ext.commands import Context, Bot
 
 from datetime import datetime
@@ -12,6 +12,7 @@ from typing import Optional
 class GameHandler():
 	def __init__(self, bot: Bot) -> None:
 		self.games_by_channel = dict[int,dict[int, Game]]()
+		self.games_by_dm = dict[int, Game]()
 		self.bot = bot
 
 		self.flagRepo = FlagRepository()
@@ -36,7 +37,7 @@ class GameHandler():
 		return False
 	
 
-	def _add(self, channel_id: int, thread_id: int, game: Game) -> None:
+	def _add_in_channel(self, channel_id: int, thread_id: int, game: Game) -> None:
 		if not channel_id in self.games_by_channel:
 			self.games_by_channel[channel_id] = {}
 
@@ -44,6 +45,17 @@ class GameHandler():
 			raise Exception("There is already a game in this thread.")
 		else:
 			self.games_by_channel[channel_id][thread_id] = game
+
+
+	def _add_in_dm(self, channel_id: int, game: Game) -> None:
+		if channel_id in self.games_by_dm: # only one game at a time in DMs
+			old_game = self.games_by_dm[channel_id]
+			if old_game and old_game.has_started and not old_game.has_ended:
+				raise Exception("There is already an ongoing game here!")
+			else:
+				del self.games_by_dm[channel_id]
+		
+		self.games_by_dm[channel_id] = game
 	
 
 	def _remove_game(self, game: Game):
@@ -60,9 +72,22 @@ class GameHandler():
 			del self.games_by_channel[channel_id][thread_id]
 
 
-	def _get_finished_game(self, include_artefacts: bool = True) -> list[Game]:
+	def _get_from_thread(self, channel_id: int, thread_id: int) -> Optional[Game]:
+		if not channel_id in self.games_by_channel:
+			return None
+		elif not thread_id in self.games_by_channel[channel_id]:
+			return None
+		else:
+			return self.games_by_channel[channel_id][thread_id]
+	
+
+	def _get_from_dm(self, channel_id) -> Optional[Game]:
+		return self.games_by_dm.get(channel_id, None)
+			
+
+	def _get_finished_game_in_channels(self, include_artefacts: bool = True) -> list[Game]:
 		"""
-		Return all the games that has ended
+		Return all the games from channels that has ended
 		if artefacts is True, then games that hasn't started are also returned
 		"""
 		out = []
@@ -75,9 +100,9 @@ class GameHandler():
 
 	def _clear(self) -> None:
 		"""
-		Remove all finished games from gameHandler
+		Remove all finished games (from channels) from gameHandler
 		"""
-		for game in self._get_finished_game():
+		for game in self._get_finished_game_in_channels():
 			self._remove_game(game)
 
 
@@ -94,7 +119,7 @@ class GameHandler():
 
 
 	async def _delete(self, thread: Thread) -> None:
-		game =  self.get(thread.parent_id, thread.id)
+		game =  self._get_from_thread(thread.parent_id, thread.id)
 		if game:
 			if not game.has_ended:
 				await game.end()
@@ -115,7 +140,7 @@ class GameHandler():
 
 	async def delete_all(self, ctx: Context) -> None:
 		"""
-		Delete all the threads of a channel associated to a game.
+		Delete all the threads of a channel that are associated to a game.
 		"""
 		if type(ctx.channel) == TextChannel:
 			count = 0
@@ -137,8 +162,12 @@ class GameHandler():
 
 
 	async def new_game(self, ctx: Context, game_name: str, *args) -> None:
-		if type(ctx.channel) != TextChannel:
-			await ctx.send("Games can only be created in Text Channel !")
+		"""
+		Create a new game, either from a Text Channel or a DM
+		"""		
+		type_channel = type(ctx.channel)
+		if not type_channel in {TextChannel, DMChannel}:
+			await ctx.send("Games can only be created in Text Channel or in DM !")
 			return
 
 		game_name = game_name.lower()
@@ -149,10 +178,16 @@ class GameHandler():
 				args = args[0:max_arguments]
 			try:
 				game = FlagGuesser(title, self.flagRepo, *args)
-				thread = await self._create_thread(ctx.channel, title)
-				game.set_thread(thread)
-
-				self._add(ctx.channel.id, thread.id, game)
+				if type_channel == TextChannel:
+					thread = await self._create_thread(ctx.channel, title)
+					game.set_thread(thread)
+					self._add_in_channel(ctx.channel.id, thread.id, game)
+				elif type_channel == DMChannel:
+					game.set_thread(ctx.channel)
+					self._add_in_dm(ctx.channel.id, game)
+				else:
+					raise Exception(f"This error should not occur. The channel type is {type_channel}")
+				
 				await game.start()
 			except Exception as e:
 				await ctx.send(f"{e}")
@@ -161,41 +196,44 @@ class GameHandler():
 			await ctx.send(f"No game with the name {game_name} found.")
 
 
-	async def play(self, ctx: Context, *args) -> None:
-		if type(ctx.channel) == Thread:
-			thread: Thread = ctx.channel
-			channel_id = thread.parent_id
+	def get_game(self, channel: Thread | DMChannel) -> Optional[Game]:
+		if type(channel) == Thread:
+			return self._get_from_thread(channel.parent_id, channel.id)
+		elif type(channel) == DMChannel:
+			return self._get_from_dm(channel.id)
+			
 
-			game = self.get(channel_id, thread.id)
-			if game and not game.has_ended:
-				await game.play(ctx, *args)
-			else:
-				await ctx.send("There is no game here :eyes:.")
+	async def play(self, ctx: Context, *args) -> None:
+		game = self.get_game(ctx.channel)
+
+		if game and not game.has_ended:
+			await game.play(ctx, *args)
+		else:
+			await ctx.send("There is no game here :eyes:.")
 
 
 	async def end_game(self, ctx: Context):
-		if type(ctx.channel) == Thread:
-			thread: Thread = ctx.channel
-			channel_id = thread.parent_id
+		game = self.get_game(ctx.channel)
 
-			game = self.get(channel_id, thread.id)
-			if game and not game.has_ended:
-				await game.end()
+		if game and not game.has_ended:
+			await game.end()
 
-	async def end_all(self):
+
+	async def end_all(self, include_dm: bool = False):
+		"""
+		End all games that are in Threads
+		include_dm (default: False): end also games in DMs
+		"""
 		for channel_id in self.games_by_channel:
 			for thread_id, game in self.games_by_channel[channel_id].items():
 				if game.has_started and not game.has_ended:
 					await game.end()
 
-	def get(self, channel_id: int, thread_id: int) -> Optional[Game]:
-		if not channel_id in self.games_by_channel:
-			return None
-		elif not thread_id in self.games_by_channel[channel_id]:
-			return None
-		else:
-			return self.games_by_channel[channel_id][thread_id]
-		
+		if include_dm:
+			for channel_id, game in self.games_by_dm.items():
+				if game.has_started and not game.has_ended:
+					await game.end()
 
-	def get_all(self) -> dict[int, dict[int, Game]]:
+
+	def get_all_games_in_channels(self) -> dict[int, dict[int, Game]]:
 		return self.games_by_channel

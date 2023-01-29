@@ -21,7 +21,7 @@ These are all the commands, in the format `$command_name <required> [optional]`.
 ### Games
 
 Games are created by the command `$game`. See the following sections to know what arguments are requested for each game.
-The command `$game` to create a game is only authorized in **Text Channel** and the command (if everything goes right) will create a **Thread** where the game will be played.
+The command `$game` to create a game is only authorized in **Text Channel** (or in **DM**, see [Play in DMs](#play-in-dms)) and the command (if everything goes right) will create a **Thread** where the game will be played.
 
 In the thread of a game, the players can type `$play` or `$end`, see in the following sections what they do.
 
@@ -90,6 +90,14 @@ For the validation, the bot transforms both the player's answer and the expected
 
 For instance: *São Tomé and Príncipe* becomes *sao tome and principe*. *Nouvelle-Zélande* becomes *nouvelle zelande*. *Fr3ance!" becomes "france*.
 This means that if you answered *Sao Tomé and Principe* (and it was the country to find), your answer will be considered as correct, even if this writing is not technically the same as *São Tomé and Príncipe*.
+
+### Play in DMs
+
+Games can be played in DMs with the bot. It will be the same as if it is a *TextChannel* but there will be no *Threads* created, it will be directly in the DM with the bot, as Threads cannot be created there.
+
+There can be only one game at a time in the DM with the bot.
+
+To play in DM, right-click the bot and choose to send it a message. The commands then stay the same.
 
 ## Setup
 

@@ -54,7 +54,7 @@ async def end(ctx):
 async def ongoing_games(ctx):
 	count = 0
 	text = ""
-	for channel_id, value in gameHandler.get_all().items():
+	for channel_id, value in gameHandler.get_all_games_in_channels().items():
 		for thread_id, game in value.items():
 			if game.has_started and not game.has_ended:
 				count += 1
@@ -80,6 +80,8 @@ async def is_thread(ctx):
 		await ctx.send("No, this is a Text Channel.")
 	elif type_channel == discord.Thread:
 		await ctx.send("Yes, this is a Thread !")
+	elif type_channel == discord.DMChannel:
+		await ctx.send("No, this is a DM channel.")
 	else:
 		await ctx.send(f"Hum, this is a {type_channel}.")
 
@@ -93,7 +95,7 @@ async def offline(ctx):
 		except Exception as e:
 			print(f"Error when sending message to channel general: {e}")
 
-	await gameHandler.end_all()
+	await gameHandler.end_all(include_dm=True)
 
 	# this will close the connection to discord but raises an error on Windows after closing the connection (https://github.com/Rapptz/discord.py/issues/5209)
 	await bot.close()
