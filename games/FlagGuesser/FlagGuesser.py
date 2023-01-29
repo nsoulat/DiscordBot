@@ -12,6 +12,7 @@ import random
 
 FLAGPEDIA_URL = "https://flagcdn.com/192x144"
 
+
 class FlagGuesser(Game):
 	name = "Guess the flag"
 	allowed_difficulties = set([DIFFICULTY.EASY, DIFFICULTY.HARD, DIFFICULTY.US, DIFFICULTY.EUROPE])

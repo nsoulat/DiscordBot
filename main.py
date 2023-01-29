@@ -60,7 +60,7 @@ async def ongoing_games(ctx):
 				count += 1
 				text += f"\n{game.title}: {game.thread.jump_url}"
 	if count == 0:
-		await ctx.send("No ongoing was found !")
+		await ctx.send("No ongoing game was found !")
 	else:
 		await ctx.send(f"{count} game{' was' if count == 1 else 's were'} found:"+text)
 
