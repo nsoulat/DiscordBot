@@ -8,15 +8,20 @@ The bot is still in construction but right now it can respond very simple senten
 
 ### All commands
 
-These are all the commands, in the format `$command_name <required> [optional]`. `[*args]` means there might be several optional arguments.
+These are all the commands, in the format `$command_name <required> [optional]`. *`[*args]` means there might be several optional arguments.*
 
-- `$hack [target]`: It may or may not hack the person you target :eyes:.
+- `$hack <target>`: It may or may not hack the person you target :eyes:.
 - `$thread?`: Says if you are is a **Thread** or a **Text Channel**.
-- `$game <game_name> [*args]`: Creates a game. Takes arguments: *see [Games](#games)*
-- `$play [*args]`: Command used in games. Takes arguments: *see [Games](#games)*
-- `$end`: Command used in games. *see [Games](#games)*
-- `$offline`: **Administrator only**. Disconnects the bot from discord.
 - `good bot`: This is the only command without the "$" prefix. It is a reddit reference.
+
+- `$game <game_name> [*args]`: Creates a game. Takes arguments: *see [Games](#games)*.
+- `$play [*args]`: Command used in games. Takes arguments: *see [Games](#games)*.
+- `$end`: Command used in games. *see [Games](#games)*.
+- `$delete`: Deletes the thread. Must be applied in a **Thread** associated to a game.
+- `$ongoing_games`: Lists all the ongoing games (only in Channels and not in DMs) the Bot is holding.
+
+- `$delete_all`: **Administrator only**. Deletes all the threads of a TextChannel that has been created by the bot.
+- `$offline`: **Administrator only**. Disconnects the bot from discord.
 
 ### Games
 
@@ -36,12 +41,6 @@ Thanks to <https://flagpedia.net>, the bot has a database of all country flags (
 To create the game, type:
 
 ```sh
-$game flag 
-```
-
-It is still WIP but the command actually is
-
-```sh
 $game flag difficulty language
 ```
 
@@ -51,6 +50,7 @@ where `difficulty` and `language` are optional.
 - `easy` (default): only countries
 - `hard`: all countries and subcountries (as US States and overseas departments/regions)
 - `us`: only flags of the US States and US territories
+- `eu`: only european countries
 
 `language` will be the language requested for the answers and can be:
 
