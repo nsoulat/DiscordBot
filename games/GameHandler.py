@@ -166,7 +166,7 @@ class GameHandler():
 		Create a new game, either from a Text Channel or a DM
 		"""		
 		type_channel = type(ctx.channel)
-		if not type_channel in {ChannelType, DMChannel}:
+		if not type_channel in {TextChannel, DMChannel}:
 			await ctx.send("Games can only be created in Text Channel or in DM !")
 			return
 
