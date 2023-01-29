@@ -140,7 +140,7 @@ class GameHandler():
 
 	async def delete_all(self, ctx: Context) -> None:
 		"""
-		Delete all the threads of a channel associated to a game.
+		Delete all the threads of a channel that are associated to a game.
 		"""
 		if type(ctx.channel) == TextChannel:
 			count = 0
