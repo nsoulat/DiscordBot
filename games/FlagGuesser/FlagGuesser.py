@@ -2,7 +2,7 @@ from games.Game import Game
 from domain.Constants import LANGUAGE, DIFFICULTY, CONTINENT
 from infra.FlagRepository import FlagRepository
 
-from discord import Thread, File
+from discord import Thread, File, DMChannel
 from discord.ext.commands import Context
 
 from unidecode import unidecode
@@ -28,7 +28,7 @@ class FlagGuesser(Game):
 		self.difficulty = difficulty
 		self.language = language
 		self.flagRepository = flagRepository
-		self.thread: Thread = None
+		self.thread: Thread | DMChannel = None
 		self.attempt_count = 0
 		self.winner = None
 
@@ -89,8 +89,11 @@ For this game, you have to give the name of the country in **{LANGUAGE.trad(self
 			await ctx.message.add_reaction("👎")
 
 	async def send_sum_up(self):
-		await self.thread.parent.send(self.get_sum_up())
-	
+		if type(self.thread) == Thread:
+			await self.thread.parent.send(self.get_sum_up())
+		elif type(self.thread) == DMChannel:
+			await self.thread.send(self.get_sum_up())
+
 	def get_sum_up(self) -> str:
 		return f"{self.winner.mention if self.winner else 'No one'} has found {self.country.names[self.language].main} {self.country.emoji if self.country.emoji else ''} ({self.attempt_count} attempt{'s' if self.attempt_count > 1 else ''}) !"
 	
