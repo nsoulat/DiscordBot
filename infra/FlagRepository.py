@@ -52,15 +52,16 @@ class FlagRepository:
 		self._valid_country_code(country_code)
 		return self.data[country_code].emoji
 	
-	def get_all_names(self, country_code: str, language: str) -> set[str]:
+	def get_names(self, country_code: str, language: str) -> set[str]:
 		self._valid_country_code(country_code)
 		return self.data[country_code].names[language]
 	
-	def get_all_countries(self, include_subCountry=True, continent=None) -> list[CountryCode]:
+	def get_all_country_codes(self, include_subCountry=True, continent=None) -> list[CountryCode]:
 		return [c for c in self.data.values() if ((include_subCountry and c.distinctFlag) or not c.subCountry) and (continent == None or c.continent == continent)]
 	
 	def get_US_regions(self) -> list[CountryCode]:
 		return [c for c in self.data.values() if c.subCountry and c.subCountryOf == "us" and c.distinctFlag]
+
 	
 
 
