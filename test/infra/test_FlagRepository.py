@@ -31,12 +31,12 @@ def test_France_is_correct():
 	])
 def test_number_countries_by_continent(continent, expected):
 	flagRep = Test_FlagRepository.get_flagRepo()
-	countries = flagRep.get_all_countries(include_subCountry=False, continent=continent)
+	countries = flagRep.get_all_country_codes(include_subCountry=False, continent=continent)
 	assert len(countries) == expected
 
 def test_check_all_countries_have_emoji():
 	flagRep = Test_FlagRepository.get_flagRepo()
-	countries = flagRep.get_all_countries(include_subCountry=False)
+	countries = flagRep.get_all_country_codes(include_subCountry=False)
 	for country in countries:
 		assert (not country.emoji is None) and (not country.emoji == "")
 

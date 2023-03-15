@@ -43,6 +43,7 @@ For this game, you have to give the name of the country in **{LANGUAGE.trad(self
 		""")
 		self.country = self._get_random_country()
 		self._set_answers()
+		self._set_all_possible_names()
 		await self.send_image(self.country.code)
 
 	def _get_random_country(self):
@@ -54,7 +55,7 @@ For this game, you have to give the name of the country in **{LANGUAGE.trad(self
 			continent = None
 			if self.difficulty == DIFFICULTY.EUROPE:
 				continent = CONTINENT.EUROPE
-			countries = self.flagRepository.get_all_countries(include_subCountry, continent)
+			countries = self.flagRepository.get_all_country_codes(include_subCountry, continent)
 		return random.choice(countries)
 
 	def _set_answers(self) -> None:
@@ -62,6 +63,17 @@ For this game, you have to give the name of the country in **{LANGUAGE.trad(self
 		'Clean' the names of the country to better check when players try some names
 		"""
 		self.all_answers = set([clean(answer) for answer in self.country.names[self.language].all_names])
+	
+	def _set_all_possible_names(self) -> None:
+		"""
+		Create and store a set of all the names of all the countries. It will be of the "possible" answers.
+		"""
+		out = set()
+		countries = self.flagRepository.get_all_country_codes()
+		for c in countries:
+			out.update(map(clean, c.names[self.language].all_names))
+		self.possible_names = out
+		print(self.possible_names)
 
 	async def send_image(self, country_code: str):
 		async with aiohttp.ClientSession() as session:
@@ -72,21 +84,23 @@ For this game, you have to give the name of the country in **{LANGUAGE.trad(self
 				await self.thread.send(file=File(data, 'which_country_is_it.png'))
 
 	async def play(self, ctx: Context, *args):
-		test = " ".join(args)
+		test = clean(" ".join(args))
 		if len(test) == 0: # no args were given
 			await ctx.reply("You have to add the name of a country or sub-country!\nEx: $play France")
 			return
 
 		self.attempt_count += 1
-		if clean(test) in self.all_answers:
+		if test in self.all_answers:
 			self.winner = ctx.author
 			await ctx.reply(f"Well done {ctx.author.mention}. You found it !", mention_author=False)
 			await ctx.message.add_reaction("👍")
 			await ctx.message.add_reaction("🎉")
 			await self.end()
-		else:
+		elif test in self.possible_names:
 			await ctx.reply(f"No! :innocent:")
 			await ctx.message.add_reaction("👎")
+		else:
+			await ctx.reply(f"I do not recognize this country. Make sure it exists and it is not mispelled (your answer must be in **{LANGUAGE.trad(self.language)}**).")
 
 	async def send_sum_up(self):
 		if type(self.thread) == Thread:
