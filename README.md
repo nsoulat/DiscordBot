@@ -101,12 +101,32 @@ To play in DM, right-click the bot and choose to send it a message. The commands
 
 ## Setup
 
-If you want to use create your own version of this bot, clone the repository and change the file `.env.example` to `.env`.
+You can use your own version of the bot with the following steps
+
+### Clone the repository
+
+```sh
+git clone https://github.com/nsoulat/DiscordBot.git
+```
+
+### Create your `env` with the right values
+
+```sh
+cp .env.example .env
+```
 
 Do not forget to enter the right token of your bot.
 If you do not know how to create a bot, or where to find its token, here is the official documentation on the matter: <https://discordpy.readthedocs.io/en/stable/discord.html>.
 
 For the `GENERAL_ID` environment variable in the `.env`, it should be the ID of the channel you want your bot to say "I'm online" and "I'm disconnecting". If you do not want the bot to say that, set it to `None`. It is worth noting that setting this ID has no impact on where the bot can respond or read the message.
+
+### Run the project
+
+The project was developed with the Python package&dependecy manager [PDM](https://pdm.fming.dev/latest/).
+
+After [installing PDM](https://pdm.fming.dev/latest/#recommended-installation-method), you can install the dependencies with `pdm install`
+
+Then run the project with `pdm run main.py`
 
 ## Permissions needed for the bot
 
@@ -127,7 +147,7 @@ Some tests are in the folder `test`.
 To run them, go at the root of the project and type
 
 ```sh
-pytest
+pdm run pytest
 ```
 
 ## Nota bene

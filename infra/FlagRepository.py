@@ -1,7 +1,8 @@
-from infra.FlagDAO import CountryCodeDAO, CountryNameDAO
-from domain.CountryCode import CountryCode
-from domain.Constants import LANGUAGE
 import json
+
+from domain.Constants import LANGUAGE
+from domain.CountryCode import CountryCode
+from infra.FlagDAO import CountryCodeDAO, CountryNameDAO
 
 
 class FlagRepository:

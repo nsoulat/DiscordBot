@@ -1,14 +1,15 @@
 class LANGUAGE:
-	FRENCH = "fr"
-	ENGLISH = "en"
+    FRENCH = "fr"
+    ENGLISH = "en"
 
-	def trad(language: str) -> str:
-		if language == LANGUAGE.FRENCH:
-			return "French"
-		if language == LANGUAGE.ENGLISH:
-			return "English"
-		else:
-			raise Exception(f"Unknown language: {language}")
+    def trad(language: str) -> str:
+        if language == LANGUAGE.FRENCH:
+            return "French"
+        if language == LANGUAGE.ENGLISH:
+            return "English"
+        else:
+            raise Exception(f"Unknown language: {language}")
+
 
 class CONTINENT:
     AFRICA = "AF"
@@ -19,9 +20,9 @@ class CONTINENT:
     OCEANIA = "OC"
     ANTARTICA = "AN"
 
+
 class DIFFICULTY:
-	EASY = "easy"
-	HARD = "hard"
-	US = "us"
-	EUROPE = "eu"
-	
+    EASY = "easy"
+    HARD = "hard"
+    US = "us"
+    EUROPE = "eu"
